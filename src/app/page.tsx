@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, BookOpen, PenTool, Search } from 'lucide-react';
+import { ArrowRight, BookOpen, PenTool, Search, Bell, Calendar } from 'lucide-react';
 import ArticleCard from '@/components/ui/ArticleCard';
 import { collection, query, orderBy, limit, getDocs } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
@@ -11,6 +11,7 @@ import { articles as localArticles } from '@/lib/data';
 export default function Home() {
   const [recentArticles, setRecentArticles] = useState<any[]>([]);
   const [latestEdition, setLatestEdition] = useState<any>(null);
+  const [latestNews, setLatestNews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -36,6 +37,14 @@ export default function Home() {
         } else {
           setRecentArticles(localArticles);
         }
+
+        // Fetch latest news
+        const newsQ = query(collection(db, "news"), orderBy("createdAt", "desc"), limit(3));
+        const newsSnap = await getDocs(newsQ);
+        setLatestNews(newsSnap.docs
+            .map(doc => ({ id: doc.id, ...doc.data() }))
+            .filter((n: any) => n.status !== 'deleted')
+        );
       } catch (error) {
         console.error("Erro ao buscar dados:", error);
         setRecentArticles(localArticles);
@@ -139,6 +148,42 @@ export default function Home() {
           <Link href="/edicoes" className="text-blue-600 font-medium">Ver todas as edições &rarr;</Link>
         </div>
       </section>
+
+      {/* News Preview Section */}
+      {latestNews.length > 0 && (
+        <section className="bg-blue-50/50 py-24">
+            <div className="container-custom">
+                <div className="flex items-end justify-between mb-12">
+                    <div>
+                        <h2 className="section-title">Avisos e Chamadas</h2>
+                        <p className="text-slate-500 mt-2">Dossiês temáticos com submissões abertas e notícias institucionais.</p>
+                    </div>
+                    <Link href="/noticias" className="hidden md:flex items-center gap-2 text-blue-600 hover:text-blue-800 font-bold transition-colors">
+                        Ver mural completo <ArrowRight size={16} />
+                    </Link>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {latestNews.map(item => (
+                        <Link href="/noticias" key={item.id} className="group bg-white rounded-2xl p-2 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden">
+                            {item.imageUrl && (
+                                <div className="aspect-video w-full rounded-xl overflow-hidden mb-4">
+                                    <img src={item.imageUrl} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt={item.title} />
+                                </div>
+                            )}
+                            <div className="p-4">
+                                <div className="flex items-center gap-2 text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-2">
+                                    <Bell size={12} className="text-blue-500" /> Chamada Aberta
+                                </div>
+                                <h3 className="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2 mb-2">{item.title}</h3>
+                                <p className="text-slate-500 text-sm line-clamp-2 leading-relaxed">{item.description}</p>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+            </div>
+        </section>
+      )}
 
       {/* Call to Action for Submission */}
       <section className="container-custom py-8 md:py-16">

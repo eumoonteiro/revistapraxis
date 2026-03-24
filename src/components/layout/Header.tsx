@@ -45,6 +45,7 @@ export default function Header() {
         { label: 'Início', href: '/' },
         { label: 'Sobre', href: '/sobre' },
         { label: 'Edições', href: '/edicoes' },
+        { label: 'Notícias', href: '/noticias' },
         { label: 'Submissão', href: '/submissao' },
         { label: 'Contato', href: '/contato' },
     ];
