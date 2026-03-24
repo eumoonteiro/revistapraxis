@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/artigo/layout,_N_T_/artigo/%5Bid%5D/layout,_N_T_/artigo/%5Bid%5D/page,_N_T_/artigo/%5Bid%5D"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/artigo/!JTVCaWQlNUQ/__PAGE__",
+    "/artigo/!JTVCaWQlNUQ",
+    "/artigo",
+    "/_index",
+    "/_head"
+  ]
+}

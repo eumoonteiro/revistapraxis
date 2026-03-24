@@ -1,0 +1,158 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/acesso-aberto",
+      "regex": "^/acesso\\-aberto(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/acesso\\-aberto(?:/)?$"
+    },
+    {
+      "page": "/admin",
+      "regex": "^/admin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin(?:/)?$"
+    },
+    {
+      "page": "/admin/edicao/%5Bid%5D",
+      "regex": "^/admin/edicao/%5Bid%5D(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/edicao/%5Bid%5D(?:/)?$"
+    },
+    {
+      "page": "/artigo/%5Bid%5D",
+      "regex": "^/artigo/%5Bid%5D(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/artigo/%5Bid%5D(?:/)?$"
+    },
+    {
+      "page": "/cadastro",
+      "regex": "^/cadastro(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/cadastro(?:/)?$"
+    },
+    {
+      "page": "/contato",
+      "regex": "^/contato(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contato(?:/)?$"
+    },
+    {
+      "page": "/edicoes",
+      "regex": "^/edicoes(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/edicoes(?:/)?$"
+    },
+    {
+      "page": "/edicoes/%5Bid%5D",
+      "regex": "^/edicoes/%5Bid%5D(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/edicoes/%5Bid%5D(?:/)?$"
+    },
+    {
+      "page": "/etica",
+      "regex": "^/etica(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/etica(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/login",
+      "regex": "^/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/painel",
+      "regex": "^/painel(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/painel(?:/)?$"
+    },
+    {
+      "page": "/politica-privacidade",
+      "regex": "^/politica\\-privacidade(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/politica\\-privacidade(?:/)?$"
+    },
+    {
+      "page": "/sobre",
+      "regex": "^/sobre(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sobre(?:/)?$"
+    },
+    {
+      "page": "/submissao",
+      "regex": "^/submissao(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/submissao(?:/)?$"
+    },
+    {
+      "page": "/submissao/nova",
+      "regex": "^/submissao/nova(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/submissao/nova(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

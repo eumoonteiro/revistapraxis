@@ -1,0 +1,21 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/acesso-aberto/page": "app/acesso-aberto/page.js",
+  "/admin/edicao/%5Bid%5D/page": "app/admin/edicao/%5Bid%5D/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/artigo/%5Bid%5D/page": "app/artigo/%5Bid%5D/page.js",
+  "/cadastro/page": "app/cadastro/page.js",
+  "/contato/page": "app/contato/page.js",
+  "/edicoes/%5Bid%5D/page": "app/edicoes/%5Bid%5D/page.js",
+  "/edicoes/page": "app/edicoes/page.js",
+  "/etica/page": "app/etica/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/login/page": "app/login/page.js",
+  "/page": "app/page.js",
+  "/painel/page": "app/painel/page.js",
+  "/politica-privacidade/page": "app/politica-privacidade/page.js",
+  "/sobre/page": "app/sobre/page.js",
+  "/submissao/nova/page": "app/submissao/nova/page.js",
+  "/submissao/page": "app/submissao/page.js"
+}

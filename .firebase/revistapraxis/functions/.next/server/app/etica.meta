@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/etica/layout,_N_T_/etica/page,_N_T_/etica"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/etica/__PAGE__",
+    "/etica",
+    "/_index",
+    "/_head"
+  ]
+}

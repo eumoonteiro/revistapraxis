@@ -1,0 +1,21 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/acesso-aberto/page": "/acesso-aberto",
+  "/admin/edicao/%5Bid%5D/page": "/admin/edicao/%5Bid%5D",
+  "/admin/page": "/admin",
+  "/artigo/%5Bid%5D/page": "/artigo/%5Bid%5D",
+  "/cadastro/page": "/cadastro",
+  "/contato/page": "/contato",
+  "/edicoes/%5Bid%5D/page": "/edicoes/%5Bid%5D",
+  "/edicoes/page": "/edicoes",
+  "/etica/page": "/etica",
+  "/favicon.ico/route": "/favicon.ico",
+  "/login/page": "/login",
+  "/page": "/",
+  "/painel/page": "/painel",
+  "/politica-privacidade/page": "/politica-privacidade",
+  "/sobre/page": "/sobre",
+  "/submissao/nova/page": "/submissao/nova",
+  "/submissao/page": "/submissao"
+}

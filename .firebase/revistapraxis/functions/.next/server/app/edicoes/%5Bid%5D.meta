@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/edicoes/layout,_N_T_/edicoes/%5Bid%5D/layout,_N_T_/edicoes/%5Bid%5D/page,_N_T_/edicoes/%5Bid%5D"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/edicoes/!JTVCaWQlNUQ/__PAGE__",
+    "/edicoes/!JTVCaWQlNUQ",
+    "/edicoes",
+    "/_index",
+    "/_head"
+  ]
+}
