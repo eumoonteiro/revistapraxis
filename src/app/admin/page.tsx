@@ -49,7 +49,7 @@ export default function AdminDashboard() {
                 return;
             }
             try {
-                if (user.email === 'praxispsicanaliticarevista@gmail.com') {
+                if (user.email === 'praxispsicanaliticarevista@gmail.com' || user.email === 'revista@praxispsicanalitica.com.br') {
                     setIsAdmin(true);
                 } else {
                     const userDoc = await getDoc(doc(db, "users", user.uid));
@@ -621,7 +621,7 @@ export default function AdminDashboard() {
                                                 <option value="reviewer">Avaliador Científico</option>
                                                 <option value="admin">Administrador (Editor)</option>
                                             </select>
-                                            {usr.email !== 'praxispsicanaliticarevista@gmail.com' && (
+                                            {usr.email !== 'praxispsicanaliticarevista@gmail.com' && usr.email !== 'revista@praxispsicanalitica.com.br' && (
                                                 <button
                                                     onClick={() => handleToggleUserBlock(usr.id, !!usr.isBlocked)}
                                                     className={`px-3 py-1 rounded text-xs font-bold ${usr.isBlocked ? 'bg-amber-100 text-amber-700 hover:bg-amber-200' : 'bg-red-50 text-red-600 hover:bg-red-100'}`}
