@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Revista Práxis Psicanalítica",
   description: "Publicação científica dedicada à difusão do conhecimento psicanalítico.",
+  icons: {
+    icon: "/logoradape.png",
+  },
 };
 
 import { AuthProvider } from "@/context/AuthContext";

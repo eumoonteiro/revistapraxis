@@ -47,14 +47,14 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-16 pb-20">
+    <div className="flex flex-col gap-24 md:gap-40 pb-32">
       {/* Hero Section */}
       <section className="relative bg-slate-900 border-b border-slate-800 overflow-hidden">
         {/* Abstract Background Element */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-900/20 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 left-0 w-1/4 h-full bg-indigo-900/20 blur-3xl rounded-full -translate-x-1/2 translate-y-1/2"></div>
 
-        <div className="container-custom relative z-10 py-24 md:py-32 flex flex-col md:flex-row items-center gap-12">
+        <div className="container-custom relative z-10 py-28 md:py-48 flex flex-col md:flex-row items-center gap-16 md:gap-24">
           <div className="flex-1 space-y-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/50 border border-blue-800 text-blue-200 text-xs font-semibold uppercase tracking-wider">
               <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
@@ -141,8 +141,8 @@ export default function Home() {
       </section>
 
       {/* Call to Action for Submission */}
-      <section className="container-custom">
-        <div className="bg-slate-100 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 md:gap-16">
+      <section className="container-custom py-8 md:py-16">
+        <div className="bg-slate-100/80 backdrop-blur-sm rounded-[2rem] p-10 md:p-20 flex flex-col lg:flex-row items-center gap-16 lg:gap-24 border border-slate-200/50">
           <div className="flex-1 space-y-6">
             <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-4">
               <PenTool size={24} />
@@ -187,7 +187,7 @@ export default function Home() {
       </section>
 
       {/* Newsletter / Notifications */}
-      <section className="container-custom text-center py-12">
+      <section className="container-custom text-center py-20 border-t border-slate-100/50">
         <h3 className="text-xl font-bold text-slate-900 mb-2">Fique atualizado</h3>
         <p className="text-slate-500 mb-6">Receba notificações sobre novas edições e chamadas de artigos.</p>
         <div className="max-w-md mx-auto flex gap-2">
