@@ -32,11 +32,41 @@ export default function AboutPage() {
         <div className="min-h-screen bg-slate-50/50 pb-20 pt-10">
             <div className="container-custom">
                 {/* Header Section */}
-                <div className="max-w-3xl mx-auto text-center mb-16">
+                <div className="max-w-4xl mx-auto text-center mb-16">
                     <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Sobre a Revista</h1>
-                    <p className="text-lg text-slate-600 leading-relaxed">
+                    <p className="text-lg text-slate-600 leading-relaxed mb-10">
                         Conheça a história, o escopo e a equipe responsável pela Revista Práxis Psicanalítica.
                     </p>
+
+                    {/* Expediente em Destaque */}
+                    <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-blue-100 text-left relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full translate-x-1/2 -translate-y-1/2"></div>
+                        <h2 className="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+                            <div className="w-1.5 h-8 bg-blue-600 rounded-full"></div>
+                            Expediente
+                        </h2>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+                            <div>
+                                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Editor-chefe</h3>
+                                <p className="text-lg font-bold text-slate-900">Rosane de Albuquerque Costa</p>
+                                <p className="text-sm text-slate-500 mt-1">Práxis Psicanalítica</p>
+                            </div>
+                            <div>
+                                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Periodicidade</h3>
+                                <p className="text-lg font-bold text-slate-900">Publicação Anual</p>
+                                <p className="text-sm text-slate-500 mt-1">Fluxo contínuo de submissões</p>
+                            </div>
+                            <div>
+                                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Publicado por</h3>
+                                <p className="text-lg font-bold text-slate-900">Práxis Psicanalítica</p>
+                                <p className="text-sm text-slate-500 mt-1 leading-relaxed">
+                                    Rua Coronel Tamarindo, 8 - Gragoatá <br />
+                                    Niterói - Rio de Janeiro - Brasil
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">

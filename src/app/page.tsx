@@ -65,9 +65,12 @@ export default function Home() {
 
         <div className="container-custom relative z-10 py-28 md:py-48 flex flex-col md:flex-row items-center gap-16 md:gap-24">
           <div className="flex-1 space-y-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/50 border border-blue-800 text-blue-200 text-xs font-semibold uppercase tracking-wider">
-              <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-              {latestEdition ? `Edição Atual: Vol. ${latestEdition.volume}, Nº ${latestEdition.number} (${latestEdition.year})` : 'Acompanhe Nossas Publicações'}
+            <div className="flex flex-col gap-4">
+              <span className="text-blue-400/80 text-xs font-mono tracking-[0.2em] uppercase">ISSN 2763-9525</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/50 border border-blue-800 text-blue-200 text-xs font-semibold uppercase tracking-wider w-fit">
+                <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                {latestEdition ? `Edição Atual: Vol. ${latestEdition.volume}, Nº ${latestEdition.number} (${latestEdition.year})` : 'Acompanhe Nossas Publicações'}
+              </div>
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">
