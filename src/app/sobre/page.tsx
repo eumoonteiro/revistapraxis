@@ -129,8 +129,8 @@ export default function AboutPage() {
                                 </li>
                                 <li>
                                     <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Contato Institucional</div>
-                                    <a href="mailto:revista@praxispsicanalitica.com.br" className="text-lg text-blue-400 hover:text-blue-300 transition-colors break-words">
-                                        revista@praxispsicanalitica.com.br
+                                    <a href="mailto:praxispsicanaliticarevista@gmail.com" className="text-lg text-blue-400 hover:text-blue-300 transition-colors break-words">
+                                        praxispsicanaliticarevista@gmail.com
                                     </a>
                                 </li>
                                 <li>

@@ -33,7 +33,7 @@ function ContentComp() {
             if (!user && !authLoading) { router.push('/login'); return; }
             try {
                 if (user) {
-                    if (user.email === 'revista@praxispsicanalitica.com.br') {
+                    if (user.email === 'praxispsicanaliticarevista@gmail.com') {
                         setIsAdmin(true);
                     } else {
                         const userDoc = await getDoc(doc(db, "users", user.uid));

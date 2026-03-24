@@ -41,7 +41,7 @@ export default function Footer() {
                     {/* Contact */}
                     <div>
                         <h4 className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-6">Contato</h4>
-                        <p className="text-slate-300 text-sm mb-2 break-all">revista@praxispsicanalitica.com.br</p>
+                        <p className="text-slate-300 text-sm mb-2 break-all">praxispsicanaliticarevista@gmail.com</p>
                         <p className="text-slate-300 text-sm mb-4 leading-relaxed">Rua Coronel Tamarindo, Gragoatá<br />Niterói - Rio de Janeiro - Brasil</p>
                         <p className="text-slate-500 text-xs">
                             ISSN: 2763-9525 (Eletrônico)

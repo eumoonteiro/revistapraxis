@@ -21,7 +21,7 @@ export default function ContactPage() {
                 {
                     subject: `[Contato Site] ${subject} - DE: ${name}`,
                     message: `Nova mensagem recebida pelo formulário de contato do site:\n\nNome: ${name}\nE-mail: ${email}\nAssunto: ${subject}\n\nMensagem:\n${message}`,
-                    to_email: 'revista@praxispsicanalitica.com.br'
+                    to_email: 'praxispsicanaliticarevista@gmail.com'
                 },
                 '7aTf3vTqhx0QvQBUz'
             );
@@ -56,8 +56,8 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <span className="block text-sm font-bold text-slate-500 uppercase tracking-wide mb-1">E-mail Principal</span>
-                                        <a href="mailto:revista@praxispsicanalitica.com.br" className="text-lg font-medium text-slate-900 hover:text-blue-600 transition-colors">
-                                            revista@praxispsicanalitica.com.br
+                                        <a href="mailto:praxispsicanaliticarevista@gmail.com" className="text-lg font-medium text-slate-900 hover:text-blue-600 transition-colors">
+                                            praxispsicanaliticarevista@gmail.com
                                         </a>
                                     </div>
                                 </div>

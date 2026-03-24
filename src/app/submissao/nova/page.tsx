@@ -61,7 +61,7 @@ export default function NewSubmissionPage() {
                     {
                         subject: `Submissão Recebida: ${formData.title}`,
                         message: `Olá ${user.displayName},\n\nRecebemos seu artigo "${formData.title}" com sucesso em nosso sistema de submissões da Revista Práxis Psicanalítica.\n\nO status do seu artigo atualmente é: Em Análise Inicial.\nVocê será notificado por este mesmo e-mail caso haja atualizações.\n\nAtenciosamente,\nConselho Editorial - Práxis Psicanalítica`,
-                        to_email: user.email || 'revista@praxispsicanalitica.com.br'
+                        to_email: user.email || 'praxispsicanaliticarevista@gmail.com'
                     },
                     '7aTf3vTqhx0QvQBUz'
                 );
@@ -73,7 +73,7 @@ export default function NewSubmissionPage() {
                     {
                         subject: `[Painel Admin] Nova Submissão Recebida de ${user.displayName}`,
                         message: `Aviso ao Corpo Editorial,\n\nUm novo artigo acabou de ser submetido na plataforma e aguarda triagem.\n\nTítulo: ${formData.title}\nAutor(es): ${user.displayName}\nCategoria: ${formData.category}\n\nAcesse o Painel Admin do site para visualizar o PDF e alterar o status.\n\nSistema Automático - Práxis Psicanalítica`,
-                        to_email: 'revista@praxispsicanalitica.com.br' // Trocar por email real do Conselho Editorial se diferente
+                        to_email: 'praxispsicanaliticarevista@gmail.com' // Trocar por email real do Conselho Editorial se diferente
                     },
                     '7aTf3vTqhx0QvQBUz'
                 );

@@ -49,7 +49,7 @@ export default function AdminDashboard() {
                 return;
             }
             try {
-                if (user.email === 'revista@praxispsicanalitica.com.br') {
+                if (user.email === 'praxispsicanaliticarevista@gmail.com') {
                     setIsAdmin(true);
                 } else {
                     const userDoc = await getDoc(doc(db, "users", user.uid));
@@ -139,7 +139,7 @@ export default function AdminDashboard() {
                 {
                     subject: `Atualização: Seu Artigo foi ${txtStatus}`,
                     message: `Olá,\n\nO status do seu manuscrito "${sub.title}" foi atualizado pelo nosso conselho editorial.\n\nNovo Status: ${txtStatus}\n\nCaso tenha sido aceito, nossa equipe de editoração entrará em contato com os próximos passos.\nAgradecemos sua contribuição,\nRevista Práxis Psicanalítica`,
-                    to_email: sub.userEmail || 'revista@praxispsicanalitica.com.br'
+                    to_email: sub.userEmail || 'praxispsicanaliticarevista@gmail.com'
                 },
                 '7aTf3vTqhx0QvQBUz'
             );
@@ -173,7 +173,7 @@ export default function AdminDashboard() {
                 {
                     subject: `[Revista Práxis] Nova mensagem sobre o artigo: ${selectedSub.title}`,
                     message: `Olá ${selectedSub.authorName},\n\nA Editoria da Revista enviou uma nova mensagem referente ao seu manuscrito:\n\n"${newMessage.content}"\n\nAcesse o Painel do Autor no portal para responder ou ler o histórico completo.`,
-                    to_email: selectedSub.userEmail || 'revista@praxispsicanalitica.com.br'
+                    to_email: selectedSub.userEmail || 'praxispsicanaliticarevista@gmail.com'
                 },
                 '7aTf3vTqhx0QvQBUz'
             );
@@ -299,7 +299,7 @@ export default function AdminDashboard() {
             await emailjs.send(
                 'service_gacbp4r',
                 'template_i7uqmoe',
-                { subject: newsSubject, message: newsBody, to_email: 'revista@praxispsicanalitica.com.br' },
+                { subject: newsSubject, message: newsBody, to_email: 'praxispsicanaliticarevista@gmail.com' },
                 '7aTf3vTqhx0QvQBUz'
             );
             alert("Newsletter disparada com sucesso!");
@@ -621,7 +621,7 @@ export default function AdminDashboard() {
                                                 <option value="reviewer">Avaliador Científico</option>
                                                 <option value="admin">Administrador (Editor)</option>
                                             </select>
-                                            {usr.email !== 'revista@praxispsicanalitica.com.br' && (
+                                            {usr.email !== 'praxispsicanaliticarevista@gmail.com' && (
                                                 <button
                                                     onClick={() => handleToggleUserBlock(usr.id, !!usr.isBlocked)}
                                                     className={`px-3 py-1 rounded text-xs font-bold ${usr.isBlocked ? 'bg-amber-100 text-amber-700 hover:bg-amber-200' : 'bg-red-50 text-red-600 hover:bg-red-100'}`}

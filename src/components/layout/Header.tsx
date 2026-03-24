@@ -26,7 +26,7 @@ export default function Header() {
 
         const checkRole = async () => {
             if (user) {
-                if (user.email === 'revista@praxispsicanalitica.com.br') {
+                if (user.email === 'praxispsicanaliticarevista@gmail.com') {
                     setIsAdmin(true);
                     return;
                 }

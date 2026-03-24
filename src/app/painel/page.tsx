@@ -86,7 +86,7 @@ export default function AuthorDashboard() {
                 {
                     subject: `[Painel] Autor enviou mensagem no artigo: ${selectedSub.title}`,
                     message: `Aviso ao Conselho Editorial,\n\nO autor ${user.displayName} enviou a seguinte mensagem no painel do manuscrito "${selectedSub.title}":\n\n"${newMessage.content}"\n\nAcesse o Painel de Gestão da revista para visualizar o histórico de mensagens e responder ao autor.`,
-                    to_email: 'revista@praxispsicanalitica.com.br'
+                    to_email: 'praxispsicanaliticarevista@gmail.com'
                 },
                 '7aTf3vTqhx0QvQBUz'
             );

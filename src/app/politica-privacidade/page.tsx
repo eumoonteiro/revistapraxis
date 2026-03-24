@@ -45,7 +45,7 @@ export default function PrivacyPolicyPage() {
 
                     <div className="mt-12 p-6 bg-slate-50 rounded-lg border border-slate-200">
                         <p className="m-0 font-bold text-slate-900 text-sm uppercase tracking-wide mb-2">Contato Encarregado de Dados</p>
-                        <a href="mailto:revista@praxispsicanalitica.com.br" className="text-blue-600 hover:underline">revista@praxispsicanalitica.com.br</a>
+                        <a href="mailto:praxispsicanaliticarevista@gmail.com" className="text-blue-600 hover:underline">praxispsicanaliticarevista@gmail.com</a>
                     </div>
                 </div>
 
