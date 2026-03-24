@@ -6,15 +6,15 @@ export default function AboutPage() {
         {
             role: 'Editora-chefe',
             members: [
-                { name: 'Rosane de Albuquerque Costa', institution: 'Práxis Psicanalítica' }
+                { name: 'Rosane de Albuquerque Costa', institution: 'Revista Práxis Psicanalítica' }
             ]
         },
         {
             role: 'Conselho Editorial',
             members: [
                 { name: 'Bárbara Breder Machado', institution: 'Universidade Federal Fluminense (UFF)' },
-                { name: 'Jorge Alberto Berlaffa', institution: 'Práxis Psicanalítica' },
-                { name: 'Marcio Garrit', institution: 'Práxis Psicanalítica' },
+                { name: 'Jorge Alberto Berlaffa', institution: 'Revista Práxis Psicanalítica' },
+                { name: 'Marcio Garrit', institution: 'Revista Práxis Psicanalítica' },
                 { name: 'Maycon Torres', institution: 'Universidade Federal Fluminense (UFF)' },
                 { name: 'Tatiana Pequeno', institution: 'Universidade Federal Fluminense (UFF)' },
                 { name: 'Zeno Germano de Souza Neto', institution: 'Faculdade Católica de Rondônia (FCR)' },
@@ -50,7 +50,7 @@ export default function AboutPage() {
                             <div>
                                 <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Editor-chefe</h3>
                                 <p className="text-lg font-bold text-slate-900">Rosane de Albuquerque Costa</p>
-                                <p className="text-sm text-slate-500 mt-1">Práxis Psicanalítica</p>
+                                <p className="text-sm text-slate-500 mt-1">Revista Práxis Psicanalítica</p>
                             </div>
                             <div>
                                 <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Periodicidade</h3>
@@ -59,7 +59,7 @@ export default function AboutPage() {
                             </div>
                             <div>
                                 <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Publicado por</h3>
-                                <p className="text-lg font-bold text-slate-900">Práxis Psicanalítica</p>
+                                <p className="text-lg font-bold text-slate-900">Revista Práxis Psicanalítica</p>
                                 <p className="text-sm text-slate-500 mt-1 leading-relaxed">
                                     Rua Coronel Tamarindo, 8 - Gragoatá <br />
                                     Niterói - Rio de Janeiro - Brasil

@@ -64,7 +64,7 @@ export default function Header() {
                     />
                     <div className="flex flex-col">
                         <span className="text-slate-900 font-bold text-lg leading-tight tracking-tight">
-                            PRÁXIS
+                            REVISTA PRÁXIS
                         </span>
                         <span className="text-slate-500 text-xs uppercase tracking-widest font-medium">
                             Psicanalítica

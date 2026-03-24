@@ -10,7 +10,7 @@ export default function Footer() {
                     <div className="space-y-4">
                         <div className="flex items-center gap-3 mb-4">
                             <Image src="/logoradape.png" alt="Logo" width={40} height={40} className="brightness-0 invert" />
-                            <h3 className="text-xl font-bold text-white">Práxis Psicanalítica</h3>
+                            <h3 className="text-xl font-bold text-white">Revista Práxis Psicanalítica</h3>
                         </div>
                         <p className="text-slate-400 text-sm leading-relaxed">
                             Revista científica dedicada à transmissão e discussão da psicanálise, suas conexões com a cultura e seus desafios na clínica contemporânea.
