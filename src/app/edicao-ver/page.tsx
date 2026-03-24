@@ -58,9 +58,7 @@ function ContentComp() {
 
                     <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
                         <div className="flex-1">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/50 border border-blue-800 text-blue-200 text-xs font-semibold uppercase tracking-wider mb-4">
-                                <BookOpen size={14} /> Volume Completo
-                            </div>
+
                             <h1 className="text-4xl md:text-5xl font-bold mb-4">
                                 {edition.title || `Vol. ${edition.volume}, Nº ${edition.number}`}
                             </h1>
