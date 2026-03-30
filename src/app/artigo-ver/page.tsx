@@ -1,11 +1,11 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { ArrowLeft, Calendar, User, Download, Quote, Share2, Loader2 } from 'lucide-react';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
-import { articles as localArticles } from '@/lib/data'; // fallback
+import { articles as localArticles } from '@/lib/data';
 
 function ContentComp() {
     const searchParams = useSearchParams();
@@ -23,12 +23,14 @@ function ContentComp() {
                 const docSnap = await getDoc(docRef);
 
                 if (docSnap.exists()) {
-                    setArticle({ id: docSnap.id, ...docSnap.data() });
+                    const data = { id: docSnap.id, ...docSnap.data() };
+                    setArticle(data);
+                    injectMetaTags(data);
                 } else {
-                    // Tenta achar no localArticles (Mock antigo) caso a pessoa clique num link do data.ts
                     const localMatch = localArticles.find((a) => a.id === id);
                     if (localMatch) {
                         setArticle(localMatch);
+                        injectMetaTags(localMatch);
                     } else {
                         setArticle(null);
                     }
@@ -36,14 +38,65 @@ function ContentComp() {
             } catch (error) {
                 console.error("Erro ao buscar artigo:", error);
                 const localMatch = localArticles.find((a) => a.id === id);
-                setArticle(localMatch || null);
+                if (localMatch) {
+                    setArticle(localMatch);
+                    injectMetaTags(localMatch);
+                } else {
+                    setArticle(null);
+                }
             } finally {
                 setLoading(false);
             }
         };
 
         fetchArticle();
+
+        // Cleanup function to remove tags when leaving
+        return () => {
+            removeMetaTags();
+        };
     }, [id]);
+
+    const injectMetaTags = (art: any) => {
+        if (!art) return;
+        
+        // Remove existing Highwire tags first
+        removeMetaTags();
+
+        const yearMatch = art.date?.match(/\d{4}/);
+        const pubDate = yearMatch ? yearMatch[0] : new Date().getFullYear().toString();
+        const authors = Array.isArray(art.authors) ? art.authors : (art.authors?.split(', ') || []);
+
+        const tags = [
+            { name: 'citation_title', content: art.title },
+            { name: 'citation_publication_date', content: pubDate },
+            { name: 'citation_journal_title', content: 'Revista Práxis Psicanalítica' },
+            { name: 'citation_issn', content: '2763-9525' },
+            { name: 'citation_doi', content: art.doi || '' },
+            { name: 'citation_pdf_url', content: art.pdfUrl || '' },
+        ];
+
+        // Add author tags (one for each)
+        authors.forEach((author: string) => {
+            tags.push({ name: 'citation_author', content: author });
+        });
+
+        tags.forEach(tag => {
+            const meta = document.createElement('meta');
+            meta.name = tag.name;
+            meta.content = tag.content;
+            meta.setAttribute('data-highwire', 'true');
+            document.head.appendChild(meta);
+        });
+
+        // Update document title too
+        document.title = `${art.title} | Revista Práxis Psicanalítica`;
+    };
+
+    const removeMetaTags = () => {
+        const existingTags = document.querySelectorAll('meta[data-highwire="true"]');
+        existingTags.forEach(tag => tag.remove());
+    };
 
     if (loading) {
         return <div className="min-h-screen pt-32 pb-20 flex justify-center"><Loader2 className="animate-spin text-blue-600" size={40} /></div>;
@@ -92,10 +145,13 @@ function ContentComp() {
     };
 
     const handleCite = () => {
-        const authorArr = authorString?.split(',') || ['Autor Desconhecido'];
-        const firstAuthorUpper = authorArr[0].split(' ').pop()?.toUpperCase() || 'AUTOR';
+        const authorArr = Array.isArray(article.authors) ? article.authors : (authorString?.split(', ') || ['Autor Desconhecido']);
+        const firstAuthor = authorArr[0] || 'Autor Desconhecido';
+        const authorParts = firstAuthor.split(' ');
+        const lastName = authorParts[authorParts.length - 1].toUpperCase();
+        
         const year = article.date || new Date().getFullYear();
-        const citeText = `${firstAuthorUpper}, et al. ${article.title}. Revista Práxis Psicanalítica, v. 1, n. 1, ${year}. Disponível em: https://www.revistapraxis.com.br/artigo-ver?id=${id}`;
+        const citeText = `${lastName}, et al. ${article.title}. Revista Práxis Psicanalítica, v. 1, n. 1, ${year}. Disponível em: https://www.revistapraxispsicanalitica.com.br/artigo-ver?id=${id}`;
 
         navigator.clipboard.writeText(citeText);
         alert("Citação (Modelo ABNT) copiada para sua área de transferência!\n\n" + citeText);
@@ -197,7 +253,9 @@ function ContentComp() {
                         <div className="mt-8 space-y-4">
                             <div>
                                 <span className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">DOI</span>
-                                <a href="#" className="text-blue-600 hover:underline break-all text-sm">{article.doi || 'Não atribuído'}</a>
+                                <a href={article.doi ? `https://doi.org/${article.doi}` : '#'} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline break-all text-sm">
+                                    {article.doi || 'Não atribuído'}
+                                </a>
                             </div>
                             <div>
                                 <span className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Licença</span>
@@ -211,13 +269,9 @@ function ContentComp() {
     );
 }
 
-
-
-import { Suspense } from 'react';
-
 export default function Page() {
   return (
-    <Suspense fallback={<div className="min-h-screen pt-32 pb-20 flex justify-center text-blue-500">Carregando...</div>}>
+    <Suspense fallback={<div className="min-h-screen pt-32 pb-20 flex justify-center text-blue-500"><Loader2 className="animate-spin" /></div>}>
       <ContentComp />
     </Suspense>
   );
