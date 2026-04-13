@@ -43,8 +43,8 @@ export default function AdminDashboard() {
     const [parsedData, setParsedData] = useState<any>(null);
     const [savingArticle, setSavingArticle] = useState(false);
 
-    // News state
     const [newsForm, setNewsForm] = useState({ title: '', description: '', link: '', imageUrl: '' });
+    const [editingNewsId, setEditingNewsId] = useState<string | null>(null);
     const [uploadingNewsImage, setUploadingNewsImage] = useState(false);
     const [savingNewsItem, setSavingNewsItem] = useState(false);
 
@@ -113,18 +113,42 @@ export default function AdminDashboard() {
         if (!newsForm.title || !newsForm.description) return alert("Preencha título e descrição!");
         setSavingNewsItem(true);
         try {
-            await addDoc(collection(db, "news"), {
-                ...newsForm,
-                createdAt: serverTimestamp()
-            });
-            alert("Notícia publicada com sucesso!");
+            if (editingNewsId) {
+                // Update existing news
+                await updateDoc(doc(db, "news", editingNewsId), {
+                    ...newsForm,
+                    updatedAt: serverTimestamp()
+                });
+                alert("Notícia atualizada com sucesso!");
+            } else {
+                // Create new news
+                await addDoc(collection(db, "news"), {
+                    ...newsForm,
+                    createdAt: serverTimestamp(),
+                    updatedAt: serverTimestamp()
+                });
+                alert("Notícia publicada com sucesso!");
+            }
             setNewsForm({ title: '', description: '', link: '', imageUrl: '' });
+            setEditingNewsId(null);
             fetchNews();
         } catch (error) {
-            alert("Erro ao publicar notícia");
+            alert("Erro ao salvar notícia");
         } finally {
             setSavingNewsItem(false);
         }
+    };
+
+    const handleEditNews = (item: any) => {
+        setNewsForm({
+            title: item.title || '',
+            description: item.description || '',
+            link: item.link || '',
+            imageUrl: item.imageUrl || ''
+        });
+        setEditingNewsId(item.id);
+        // Scroll to form
+        window.scrollTo({ top: 200, behavior: 'smooth' });
     };
 
     const handleDeleteNews = async (id: string) => {
@@ -667,7 +691,20 @@ export default function AdminDashboard() {
                 {activeTab === 'noticias' && (
                     <div className="space-y-8">
                         <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
-                            <h2 className="text-xl font-bold text-slate-900 mb-6">Criar Novo Aviso / Chamada de Dossiê</h2>
+                            <div className="flex justify-between items-center mb-6">
+                                <h2 className="text-xl font-bold text-slate-900">{editingNewsId ? 'Editar Notícia / Chamada' : 'Criar Novo Aviso / Chamada de Dossiê'}</h2>
+                                {editingNewsId && (
+                                    <button 
+                                        onClick={() => {
+                                            setEditingNewsId(null);
+                                            setNewsForm({ title: '', description: '', link: '', imageUrl: '' });
+                                        }}
+                                        className="text-sm font-bold text-red-500 hover:underline"
+                                    >
+                                        Cancelar Edição
+                                    </button>
+                                )}
+                            </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-4">
                                     <div>
@@ -701,8 +738,8 @@ export default function AdminDashboard() {
                                         )}
                                     </div>
                                     <button onClick={handleCreateNews} disabled={savingNewsItem || uploadingNewsImage} className="w-full flex items-center justify-center gap-2 bg-slate-900 text-white py-3 rounded-xl font-bold hover:bg-blue-600 transition-all disabled:opacity-50">
-                                        {savingNewsItem ? <Loader2 className="animate-spin" size={18} /> : <Plus size={18} />}
-                                        Publicar Notícia
+                                        {savingNewsItem ? <Loader2 className="animate-spin" size={18} /> : (editingNewsId ? <CheckCircle size={18} /> : <Plus size={18} />)}
+                                        {editingNewsId ? 'Salvar Alterações' : 'Publicar Notícia'}
                                     </button>
                                 </div>
                             </div>
@@ -718,7 +755,10 @@ export default function AdminDashboard() {
                                             <h3 className="font-bold text-slate-900">{item.title}</h3>
                                             <p className="text-xs text-slate-500 line-clamp-1">{item.description}</p>
                                         </div>
-                                        <button onClick={() => handleDeleteNews(item.id)} className="p-2 text-slate-300 hover:text-red-500 transition-colors"><Trash2 size={18} /></button>
+                                        <div className="flex items-center gap-2">
+                                            <button onClick={() => handleEditNews(item)} className="p-2 text-slate-300 hover:text-blue-500 transition-colors" title="Editar"><Settings size={18} /></button>
+                                            <button onClick={() => handleDeleteNews(item.id)} className="p-2 text-slate-300 hover:text-red-500 transition-colors" title="Excluir"><Trash2 size={18} /></button>
+                                        </div>
                                     </div>
                                 ))}
                                 {newsList.length === 0 && <p className="p-8 text-center text-slate-400 text-sm">Nenhuma notícia publicada.</p>}

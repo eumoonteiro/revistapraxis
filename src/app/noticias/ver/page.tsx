@@ -80,13 +80,20 @@ function NoticiaVerContent() {
                         <span className="px-4 py-1.5 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-[0.15em] rounded-full shadow-lg shadow-blue-100">
                             Chamada Aberta
                         </span>
-                        <div className="flex items-center gap-2 text-slate-400 text-sm font-medium">
-                            <Calendar size={16} />
-                            {noticia.createdAt?.toDate ? new Date(noticia.createdAt.toDate()).toLocaleDateString('pt-BR', {
-                                day: '2-digit',
-                                month: 'long',
-                                year: 'numeric'
-                            }) : 'Recentemente'}
+                        <div className="flex flex-col gap-2">
+                            <div className="flex items-center gap-2 text-slate-400 text-sm font-medium">
+                                <Calendar size={16} />
+                                {noticia.createdAt?.toDate ? new Date(noticia.createdAt.toDate()).toLocaleDateString('pt-BR', {
+                                    day: '2-digit',
+                                    month: 'long',
+                                    year: 'numeric'
+                                }) : 'Recentemente'}
+                            </div>
+                            {noticia.updatedAt && noticia.updatedAt.seconds !== noticia.createdAt?.seconds && (
+                                <div className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">
+                                    Última atualização: {new Date(noticia.updatedAt.toDate()).toLocaleString('pt-BR')}
+                                </div>
+                            )}
                         </div>
                     </div>
 
