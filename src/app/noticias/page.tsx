@@ -50,7 +50,11 @@ export default function NoticiasPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                     {news.map((item) => (
-                        <div key={item.id} className="group bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full">
+                        <Link 
+                            key={item.id} 
+                            href={item.link || "/submissao/nova"}
+                            className="group bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full cursor-pointer"
+                        >
                             <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
                                 {item.imageUrl ? (
                                     <img 
@@ -83,15 +87,12 @@ export default function NoticiasPage() {
                                 </p>
                                 
                                 <div className="mt-auto pt-6 border-t border-slate-50">
-                                    <Link 
-                                        href={item.link || "/submissao/nova"} 
-                                        className="inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:gap-3 transition-all"
-                                    >
+                                    <div className="inline-flex items-center gap-2 text-blue-600 font-bold text-sm group-hover:gap-3 transition-all">
                                         Acesse as Diretrizes <ArrowRight size={16} />
-                                    </Link>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
 
                     {news.length === 0 && (

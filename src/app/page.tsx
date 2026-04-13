@@ -168,18 +168,23 @@ export default function Home() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {latestNews.map(item => (
-                        <Link href="/noticias" key={item.id} className="group bg-white rounded-2xl p-2 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden">
+                        <Link href={item.link || "/noticias"} key={item.id} className="group bg-white rounded-2xl p-2 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden flex flex-col">
                             {item.imageUrl && (
                                 <div className="aspect-video w-full rounded-xl overflow-hidden mb-4">
                                     <img src={item.imageUrl} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt={item.title} />
                                 </div>
                             )}
-                            <div className="p-4">
+                            <div className="p-4 flex-grow">
                                 <div className="flex items-center gap-2 text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-2">
                                     <Bell size={12} className="text-blue-500" /> Chamada Aberta
                                 </div>
                                 <h3 className="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2 mb-2">{item.title}</h3>
-                                <p className="text-slate-500 text-sm line-clamp-2 leading-relaxed">{item.description}</p>
+                                <p className="text-slate-500 text-sm line-clamp-2 leading-relaxed mb-4">{item.description}</p>
+                            </div>
+                            <div className="px-4 pb-4 mt-auto">
+                                <div className="inline-flex items-center gap-2 text-blue-600 font-bold text-xs group-hover:gap-3 transition-all">
+                                    Acesse as Diretrizes <ArrowRight size={14} />
+                                </div>
                             </div>
                         </Link>
                     ))}
