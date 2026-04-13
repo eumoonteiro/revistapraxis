@@ -30,6 +30,25 @@ function NoticiaVerContent() {
         fetchNoticia();
     }, [id]);
 
+    const handlePrint = () => {
+        window.print();
+    };
+
+    const handleShare = async () => {
+        if (typeof navigator !== 'undefined' && navigator.share) {
+            try {
+                await navigator.share({
+                    title: noticia.title,
+                    text: noticia.description.substring(0, 100) + '...',
+                    url: window.location.href,
+                });
+            } catch (err) { }
+        } else {
+            navigator.clipboard.writeText(window.location.href);
+            alert('Link copiado para a área de transferência!');
+        }
+    };
+
     if (loading) {
         return (
             <div className="min-h-screen py-40 flex flex-col justify-center items-center gap-4">
@@ -63,10 +82,10 @@ function NoticiaVerContent() {
                         <ArrowLeft size={16} /> Voltar para o Mural
                     </Link>
                     <div className="flex items-center gap-4">
-                        <button className="text-slate-400 hover:text-slate-600 transition-colors" title="Imprimir">
+                        <button onClick={handlePrint} className="text-slate-400 hover:text-slate-600 transition-colors p-2" title="Imprimir">
                             <Printer size={18} />
                         </button>
-                        <button className="text-slate-400 hover:text-slate-600 transition-colors" title="Compartilhar">
+                        <button onClick={handleShare} className="text-slate-400 hover:text-slate-600 transition-colors p-2" title="Compartilhar">
                             <Share2 size={18} />
                         </button>
                     </div>
