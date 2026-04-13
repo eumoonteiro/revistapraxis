@@ -52,7 +52,7 @@ export default function NoticiasPage() {
                     {news.map((item) => (
                         <Link 
                             key={item.id} 
-                            href={item.link || "/submissao/nova"}
+                            href={`/noticias/ver?id=${item.id}`}
                             className="group bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full cursor-pointer"
                         >
                             <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">

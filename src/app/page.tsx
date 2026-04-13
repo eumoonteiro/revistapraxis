@@ -168,7 +168,7 @@ export default function Home() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {latestNews.map(item => (
-                        <Link href={item.link || "/noticias"} key={item.id} className="group bg-white rounded-2xl p-2 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden flex flex-col">
+                        <Link href={`/noticias/ver?id=${item.id}`} key={item.id} className="group bg-white rounded-2xl p-2 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden flex flex-col">
                             {item.imageUrl && (
                                 <div className="aspect-video w-full rounded-xl overflow-hidden mb-4">
                                     <img src={item.imageUrl} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt={item.title} />
