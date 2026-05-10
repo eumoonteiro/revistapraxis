@@ -24,6 +24,7 @@ export default function AboutPage() {
                 { name: 'Jorge Alberto Berlaffa', institution: 'Revista Práxis Psicanalítica' },
                 { name: 'Marcio Garrit', institution: 'Revista Práxis Psicanalítica' },
                 { name: 'Maycon Torres', institution: 'Universidade Federal Fluminense (UFF)' },
+                { name: 'Tatiana Pequeno', institution: 'Universidade Federal Fluminense (UFF)' },
                 { name: 'Zeno Germano de Souza Neto', institution: 'Faculdade Católica de Rondônia (FCR)' },
             ]
         },
