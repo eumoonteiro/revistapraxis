@@ -4,9 +4,17 @@ import { Mail, ShieldCheck, BookOpen, Users } from 'lucide-react';
 export default function AboutPage() {
     const editorialBoard = [
         {
-            role: 'Editora-chefe',
+            role: 'Editoria-geral',
             members: [
-                { name: 'Rosane de Albuquerque Costa', institution: 'Revista Práxis Psicanalítica' }
+                { name: 'Rosane Costa', institution: 'Revista Práxis Psicanalítica' }
+            ]
+        },
+        {
+            role: 'Editores',
+            members: [
+                { name: 'Cello Latini Pfeil', institution: 'Revista Práxis Psicanalítica' },
+                { name: 'Tatiana Pequeno', institution: 'Universidade Federal Fluminense (UFF)' },
+                { name: 'Lucas Monteiro Silva', institution: 'Revista Práxis Psicanalítica' },
             ]
         },
         {
@@ -16,16 +24,9 @@ export default function AboutPage() {
                 { name: 'Jorge Alberto Berlaffa', institution: 'Revista Práxis Psicanalítica' },
                 { name: 'Marcio Garrit', institution: 'Revista Práxis Psicanalítica' },
                 { name: 'Maycon Torres', institution: 'Universidade Federal Fluminense (UFF)' },
-                { name: 'Tatiana Pequeno', institution: 'Universidade Federal Fluminense (UFF)' },
                 { name: 'Zeno Germano de Souza Neto', institution: 'Faculdade Católica de Rondônia (FCR)' },
             ]
         },
-        {
-            role: 'Assistente Editorial',
-            members: [
-                { name: 'Lucas Monteiro Silva', institution: 'Designer, Programador e Suporte Técnico', email: 'monteirolucas.rj@outlook.com' }
-            ]
-        }
     ];
 
     return (
@@ -48,8 +49,8 @@ export default function AboutPage() {
                         
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
                             <div>
-                                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Editor-chefe</h3>
-                                <p className="text-lg font-bold text-slate-900">Rosane de Albuquerque Costa</p>
+                                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Editoria-geral</h3>
+                                <p className="text-lg font-bold text-slate-900">Rosane Costa</p>
                                 <p className="text-sm text-slate-500 mt-1">Revista Práxis Psicanalítica</p>
                             </div>
                             <div>
